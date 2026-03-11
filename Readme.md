@@ -24,7 +24,7 @@ Help support me, this and future projects on [Patreon](https://www.patreon.com/c
 1. Make sure to have [.Net6.0](https://dotnet.microsoft.com/en-us/download/dotnet/6.0) installed
 2. Download and Install [Melon Loader](https://melonwiki.xyz/#/?id=automated-installation).
     - The default Poco install directory (for steam): C:\Program Files (x86)\Steam\steamapps\common\Poco
-    - Recommended melon version: 7.1
+    - Use Melon version: 7.2
 3. Launch the game and close it. This will finalize the Melon installation.
 4. Download and extract the `Pocopelago.zip` from the [latest release page](https://github.com/SWCreeperKing/Pocopelago/releases/latest).
     - Copy the `Mods` and `UserLibs` folders from the zip into the game's directory.
