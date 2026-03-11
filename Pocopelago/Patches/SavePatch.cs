@@ -1,7 +1,5 @@
-﻿using System.Reflection;
-using HarmonyLib;
+﻿using HarmonyLib;
 using Pocopelago.Archipelago;
-using UnityEngine;
 
 namespace Pocopelago.Patches;
 

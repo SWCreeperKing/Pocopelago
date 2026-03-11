@@ -1,7 +1,5 @@
-﻿using CreepyUtil.Archipelago;
-using MelonLoader;
+﻿using MelonLoader;
 using Pocopelago.Archipelago;
-using Unity.VisualScripting;
 using UnityEngine;
 using Werepelago.Archipelago;
 using Object = UnityEngine.Object;

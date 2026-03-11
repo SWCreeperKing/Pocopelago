@@ -26,11 +26,10 @@ Help support me, this and future projects on [Patreon](https://www.patreon.com/c
     - The default Poco install directory (for steam): C:\Program Files (x86)\Steam\steamapps\common\Poco
     - Recommended melon version: 7.1
 3. Launch the game and close it. This will finalize the Melon installation.
-4. Download and extract the `SW_CreeperKing.Pocopelago.zip` from
-   the [latest release page](https://github.com/SWCreeperKing/Pocopelago/releases/latest).
+4. Download and extract the `Pocopelago.zip` from the [latest release page](https://github.com/SWCreeperKing/Pocopelago/releases/latest).
     - Copy the `Mods` and `UserLibs` folders from the zip into the game's directory.
 5. Launch the game again and you should see the connection input on the top left of the title screen!
-6. To uninstall the mod, either remove/delete the `SW_CreeperKing.Pocopelago` folder
+6. To uninstall the mod, either remove/delete the `Pocopelago` folder
 
 ---
 
