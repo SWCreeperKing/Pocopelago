@@ -27,8 +27,7 @@ public class Core : MelonMod
         ClownClient.LocationDictionary = File.ReadAllLines($"{DataFolder}/locations.txt")
                                              .Select(line => line.Split(':'))
                                              .ToDictionary(arr => arr[1], arr => arr[0]);
-        ClownClient.ItemsGiven = new LoseFlag<string>("None");
-        ClownClient.ItemsRemoved = new LoseFlag<string>("None");
+        
         ClownClient.ItemsGiven.AddFlags(File.ReadAllLines($"{DataFolder}/items.txt"));
         ClownClient.ItemsRemoved.AddFlags(File.ReadAllLines($"{DataFolder}/items.txt"));
         ClownClient.ItemBlockers = File.ReadAllLines($"{DataFolder}/blockers.txt").Select(s => s.Split(':'))
@@ -69,8 +68,11 @@ public class Core : MelonMod
         StartButton = panel.GetChild(1);
         var @continue = panel.GetChild(2);
 
-        StartButton.SetActive(false);
-        @continue.SetActive(false);
+        if (!ClownClient.Client.IsConnected)
+        {
+            StartButton.SetActive(false);
+            @continue.SetActive(false);
+        }
 
         WorldController = Object.FindObjectOfType<WorldController>();
 

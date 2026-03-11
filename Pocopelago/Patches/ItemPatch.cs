@@ -24,6 +24,6 @@ public static class ItemPatch
     public static void RemoveItem(string n)
     {
         ClownClient.ItemsRemoved += n;
-        ClownClient.Client.SendToStorage("items_removed", (ulong)ClownClient.ItemsRemoved);
+        FBPP.SetString("items_removed", ClownClient.ItemsRemoved);
     }
 }

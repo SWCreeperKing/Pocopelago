@@ -17,8 +17,8 @@ public static class ClownClient
     public static Dictionary<string, string[]> ItemBlockers = [];
     public static List<string> Items = [];
     public static string GameUUID = "Generic";
-    public static LoseFlag<string> ItemsGiven;
-    public static LoseFlag<string> ItemsRemoved;
+    public static LargeLoseFlag<string> ItemsGiven = new();
+    public static LargeLoseFlag<string> ItemsRemoved = new();
     public static Dictionary<string, string[]> ItemHolders = [];
 
     public static void Init()
@@ -41,11 +41,12 @@ public static class ClownClient
                 ItemHolders.Clear();
                 Items.Clear();
                 GameUUID = (string)Client.SlotData["uuid"];
-                ItemsGiven.SetFlag(Client.GetFromStorage("items_got", def: 0ul));
-                ItemsRemoved.SetFlag(Client.GetFromStorage("items_removed", def: 0ul));
 
                 try { Core.WorldController.CallPrivateMethod("Awake"); }
                 catch (Exception e) { Core.Log.Error(e); }
+
+                if (FBPP.HasKeyForString("items_got")) ItemsGiven.SetFlag(FBPP.GetString("items_got"));
+                if (FBPP.HasKeyForString("items_removed")) ItemsRemoved.SetFlag(FBPP.GetString("items_removed"));
             }
             catch (Exception e) { Core.Log.Error(e); }
         };
@@ -81,7 +82,7 @@ public static class ClownClient
             var items = Client.GetOutstandingItems();
             if (!items.Any()) return;
             foreach (var item in items) HandleItems(item);
-            Client.SendToStorage("items_got", (ulong)ItemsGiven);
+            FBPP.SetString("items_got", ItemsGiven);
         }
         catch (Exception e) { Core.Log.Error(e); }
     }
